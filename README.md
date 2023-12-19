@@ -2,79 +2,26 @@ CSAD
 
 
 
-Info
-About repository
-This repository created for course "Computer systems automated design" of Lviv Polytechnic National University
 
-Task
-The point of this course is to create a simple game using hardware and software. The hardware should act as a server and process requests from software by UART.
+Repository Information This repository was created for the tic-tac-toe game project. From the subject "Computer systems of automated design" NU "Lviv Polytechnic"
 
-Student
-Number	Student	Task	Config format
-21 Sopinka Andriy	tic-tac-toe (unlimited board)	XML
-Project details
-Communication schema drawing Details about technology, program language, and Hardware that will be used in next tasks.
+The task of the project is to create a game using hardware and software. The hardware must act as a server and handle requests from the software via the UART.
 
-Software
-The frontend part of application will be written using Angular 2 with Ngrx as a Single page application(SPA). Programing language - TypeScript
+Student Number Student Assignment Configuration Format 21 Sopinka Andrii Tick-Toe (Unlimited Board) XML Project Details Communication Schematic Drawing Details about the technology, programming language, and hardware that will be used in the following assignments.
 
-Middleware
-In order to combine the frontend and the hardware, spring boot will be used, which will process requests from the Angular, transfer them to Arduino and send the response back. Programing language - Java
+The front end and software of the application is written using Angular 2 with Ngrx as a single page application (SPA). The programming language is TypeScript
 
-Hardware
-Raspberry Pi PICO will be used as a server. Programing language - C++, Framework - Arduino
+To connect the software and interface, I used Spring Boot, which will handle the requests from Angular, pass them to the Arduino, and send the response back. The programming language is Java
 
-DevOps
-Ansible and Jenkins will be used to simplify and automate build and deploy. Frontend and Backend will be conterised with docker
+Raspberry Pi PICO hardware is used as a server. Programming language - C++, Framework - Arduino
 
-Run
-Info how to build and run application
+DevOps Ansible and Jenkins will be used to simplify and automate build and deployment. Frontend and Backend will be combined with docker
 
-IWNIL_client
-Dont forget to change the address of server in environment.ts
+Run Information about creating and running the program
 
-Local run
-Required node v16 or higher
+IWNIL_client Don't forget to change the server address in environment.ts
 
-ng serve
-or
-
-npm run start
-Docker
-cd src/iwnil_client
-docker build -t <youruser>/iwnil-client:${package.json.version} .
-docker run -d -p 80:80 --restart=always --name=iwnil-client <youruser>/iwnil-client:${package.json.version}
-IWNIL_backend
-Local run
-Required maven
-
-cd src/iwnil_backend
-mvn spring-boot:run -f pom.xml
-Docker
-cd src/iwnil_backend
-mvn spring-boot:build-image -f pom.xml
-docker run -d -p 9000:9000 -devices /dev/ttyUSB0:/dev/ttyUSB0 iwnil-backend:<version>
-Raspberry Pi PICO
-Hold the BOOTSEL button on board
-Plug in a micro usb cable
-Release the button when board will appear in list of devices on your PC
-Move a firmware.uf2 file to RPI-RP2
-Ready
-MongoDB
-Required CPU with AVX support othervise use mongo:4.4.6 or lower
-
-docker run -e MONGO_INITDB_ROOT_USERNAME=mongodb -e MONGO_INITDB_ROOT_PASSWORD=mongodb -p 27017:27017 -d mongo
-Documentation
-All documentation is in the docs branch You can download it using the following command:
-
-git clone -b docs https://github.com/dimoybiyca/csdt2024ki49kryvyidmytro13.git
-IWNIL_client
-Documentation for Angular client was generated with compdoc utility You can view it by opening index.html file by any browser at docs/iwnil-client folder
-
-IWNIL_backend
-Documentation for Spring Boot was generated with Javadoc utility You can view it by opening index.html file by any browser at docs/iwnil-backend folder
-
-Also was generated API documentation using swagger and api-docs Accesible only when server is running
+Local launch. Node version 16 or higher is required
 
 swagger: http:localhost:9000/swagger-ui
 api-docs: http:localhost:9000/api-docs
